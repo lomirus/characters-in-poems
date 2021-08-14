@@ -1,4 +1,4 @@
-import { Shijing } from "../types.ts";
+import { Shijing } from "../../src/types.ts";
 
 const allShijing: Array<Shijing> = [
   {

@@ -1,4 +1,4 @@
-import { Tangshi } from "../types.ts";
+import { Tangshi } from "../../src/types.ts";
 
 const allTangshi: Array<Tangshi> = [
     {
