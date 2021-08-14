@@ -1,7 +1,11 @@
 import shijing from './poetry/shijing.ts';
-import tangshi from './poetry/shijing.ts';
+import tangshi from './poetry/tangshi.ts';
 
-export {
+import { Poem } from "../src/types.ts";
+
+const poetry: Record<string, Poem[]> = {
     shijing,
     tangshi
 }
+
+export default poetry
