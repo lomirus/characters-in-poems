@@ -1,14 +1,9 @@
-import dict from "../data/dict.ts";
-
 import { Poem } from "./types.ts";
-
-function getPinyin(words: string): string[] {
-    return words.split("").map((char) => dict[char]);
-}
+import { getParagraphPinyin } from "./pinyin.ts";
 
 function getParagraphCount(paragraph: string, keyword: string): number {
-    const paragraphPinyin = getPinyin(paragraph.replace(/[，。！？\[\]]/g, ""));
-    const keywordPinyin = getPinyin(keyword);
+    const paragraphPinyin = getParagraphPinyin(paragraph.replace(/[，。！？\[\]]/g, ""));
+    const keywordPinyin = getParagraphPinyin(keyword);
     return keywordPinyin.reduce(
         (total, keyword) => paragraphPinyin.includes(keyword) ? total + 1 : total,
         0,
@@ -19,16 +14,16 @@ function getPoemMaxCount(poem: Poem, keyword: string): [number, string] {
     let maxCount = 0;
     let maxCountParagraph = '';
     poem.content.forEach((paragraph, index) => {
-        const Count = getParagraphCount(paragraph, keyword);
-        if (Count > maxCount) {
-            maxCount = Count;
+        const count = getParagraphCount(paragraph, keyword);
+        if (count > maxCount) {
+            maxCount = count;
             maxCountParagraph = poem.content[index];
         }
     })
     return [maxCount, maxCountParagraph];
 }
 
-function getBestMatchedParagraph(poems: Poem[], keyword: string): [number, string[]] {
+function getBestMatchedResults(poems: Poem[], keyword: string): [number, string[]] {
     let maxCounts: [number, string][] = [];
     poems.forEach((poem) => maxCounts.push(getPoemMaxCount(poem, keyword)));
     const maxCount = Math.max(...maxCounts.map(([count, _]) => count))
@@ -36,16 +31,7 @@ function getBestMatchedParagraph(poems: Poem[], keyword: string): [number, strin
     return [maxCount, maxCounts.map(([_, paragraph]) => paragraph)]
 }
 
-function highlightByBrackets(paragraphs: string[], keyword: string): string[] {
-    return paragraphs.map((paragraph) => {
-        return paragraph.split("").map(char => {
-            return getPinyin(keyword).includes(dict[char]) ? `[${char}]` : char
-        }).join("")
-    })
-}
-
 export {
-    getBestMatchedParagraph,
-    highlightByBrackets
+    getBestMatchedResults,
 }
 
