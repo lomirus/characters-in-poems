@@ -7,7 +7,7 @@ function getPinyin(words: string): string[] {
 }
 
 function getParagraphCount(paragraph: string, keyword: string): number {
-    const paragraphPinyin = getPinyin(paragraph.replace(/[，。！？]/g, ""));
+    const paragraphPinyin = getPinyin(paragraph.replace(/[，。！？\[\]]/g, ""));
     const keywordPinyin = getPinyin(keyword);
     return keywordPinyin.reduce(
         (total, keyword) => paragraphPinyin.includes(keyword) ? total + 1 : total,
