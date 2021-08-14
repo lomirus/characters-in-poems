@@ -1,4 +1,6 @@
-[
+import { Tangshi } from "../types.ts";
+
+const allTangshi: Array<Tangshi> = [
     {
         "author": "骆宾王",
         "content": [
@@ -3947,3 +3949,5 @@
         "title": "宫词五首 二"
     }
 ]
+
+export default allTangshi

@@ -1,4 +1,6 @@
-[
+import { Shijing } from "../types.ts";
+
+const allShijing: Array<Shijing> = [
   {
     "title": "关雎",
     "chapter": "国风",
@@ -3454,3 +3456,5 @@
     ]
   }
 ]
+
+export default allShijing
