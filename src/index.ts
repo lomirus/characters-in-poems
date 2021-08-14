@@ -36,7 +36,16 @@ function getBestMatchedParagraph(poems: Poem[], keyword: string): [number, strin
     return [maxCount, maxCounts.map(([_, paragraph]) => paragraph)]
 }
 
+function highlightByBrackets(paragraphs: string[], keyword: string): string[] {
+    return paragraphs.map((paragraph) => {
+        return paragraph.split("").map(char => {
+            return getPinyin(keyword).includes(dict[char]) ? `[${char}]` : char
+        }).join("")
+    })
+}
+
 export {
-    getBestMatchedParagraph
+    getBestMatchedParagraph,
+    highlightByBrackets
 }
 
