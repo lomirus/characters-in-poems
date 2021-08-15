@@ -11,7 +11,7 @@ deno run index.ts -w 倪秦宇 -p shijing,tangshi -f bracket
 ```
 
 - `-w`/`--keyword`: 必选，欲查找的汉字词语。
-- `-p`/`--poetry`: 必选，查找范围。
+- `-p`/`--poetry`: 可选，查找范围，默认为全部。
     - 若有多个范围，其中间使用半角逗号进行分隔；
     - 目前支持的查找范围有：`shijing`:《诗经》，`chuci`:《楚辞》，`tangshi`:《唐诗三百首》，`songci`:《宋词三百首》。
 - `-f`/`--format`: 可选，输出高亮格式，默认值为 `color`。
