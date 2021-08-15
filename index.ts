@@ -16,15 +16,21 @@ const specWord: string = (() => {
     return args.keyword ? args.keyword : args.w
 })();
 
-const specPoetry: Poem[] = (args.p ? args.p.split(",") : [])
-    .concat((args.poetry ? args.poetry.split(",") : []))
-    .reduce((poetries: Poem[], poetryName: string) => {
+const specPoetry: Poem[] = (() => {
+    let list: string[] = (args.p ? args.p.split(",") : [])
+        .concat((args.poetry ? args.poetry.split(",") : []));
+
+    if (list.length === 0)
+        list = ["shijing", "chuci", "tangshi", "songci"]
+
+    return list.reduce((poetries: Poem[], poetryName: string) => {
         if (!Object.keys(poetry).includes(poetryName)) {
             console.error(`Unexpected Poetry Name: ${poetryName}`);
             Deno.exit()
         }
         return [...poetries, ...poetry[poetryName]]
-    }, []);
+    }, [])
+})();
 
 const specFormat: string = (() => {
     if (args.format) {
