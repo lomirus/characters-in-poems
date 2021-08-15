@@ -3,3 +3,9 @@ export interface Poem {
   author: string;
   content: string[];
 }
+
+export interface Line {
+  title: string;
+  author: string;
+  paragraph: string;
+}
