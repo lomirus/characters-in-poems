@@ -1,6 +1,6 @@
-import { Tangshi } from "../../src/types.ts";
+import { Poem } from "../../src/types.ts";
 
-const allTangshi: Array<Tangshi> = [
+const allTangshi: Array<Poem> = [
     {
         "author": "骆宾王",
         "content": [
