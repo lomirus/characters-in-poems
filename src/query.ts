@@ -33,7 +33,7 @@ return [maxCount, maxCountLine];
 
 function getMaxCountLines(poems: Poem[], keyword: string): [number, Line[]] {
     let maxCounts: [number, Line][] = [];
-    poems.forEach((poem) => maxCounts.push(getMaxCountLine(poem, keyword)));
+    poems.forEach(poem => maxCounts.push(getMaxCountLine(poem, keyword)));
     const maxCount = Math.max(...maxCounts.map(([count, _]) => count))
     maxCounts = maxCounts.filter(([count, _]) => count === maxCount);
     return [maxCount, maxCounts.map(([_, paragraph]) => paragraph)]

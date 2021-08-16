@@ -21,7 +21,7 @@ const specPoetry: Poem[] = (() => {
         .concat((args.poetry ? args.poetry.split(",") : []));
 
     if (list.length === 0)
-        list = ["shijing", "chuci", "tangshi", "songci"]
+        list = ["shijing", "chuci", "tangshi", "songci", "quantangshi", "quansongci"]
 
     return list.reduce((poetries: Poem[], poetryName: string) => {
         if (!Object.keys(poetry).includes(poetryName)) {
