@@ -1,9 +1,9 @@
-import shijing from './poetry/shijing.ts';
-import chuci from './poetry/chuci.ts';
-import tangshi300 from './poetry/tangshi300.ts';
-import songci300 from './poetry/songci300.ts';
-import tangshi from './poetry/tangshi.ts';
-import songci from './poetry/songci.ts';
+const shijing = JSON.parse(await Deno.readTextFile('data/poetry/shijing.json'));
+const chuci = JSON.parse(await Deno.readTextFile('data/poetry/chuci.json'));
+const tangshi300 = JSON.parse(await Deno.readTextFile('data/poetry/tangshi300.json'));
+const songci300 = JSON.parse(await Deno.readTextFile('data/poetry/songci300.json'));
+const tangshi = JSON.parse(await Deno.readTextFile('data/poetry/tangshi.json'));
+const songci = JSON.parse(await Deno.readTextFile('data/poetry/songci.json'));
 
 import { Poem } from "../src/types.ts";
 

@@ -7,7 +7,7 @@
 Example:
 
 ```bash
-deno run index.ts -w 倪秦宇 -p shijing,tangshi -f bracket 
+deno run --allow-read index.ts -w 倪秦宇 -p shijing,tangshi -f bracket 
 ```
 
 - `-w`/`--keyword`: 必选，欲查找的汉字词语。
