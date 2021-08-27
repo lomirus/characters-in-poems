@@ -1,4 +1,4 @@
-import dict from "../data/dict.ts";
+const dict = JSON.parse(await Deno.readTextFile("data/dict.json"));
 
 function getCharPinyin(char: string): string {
     return dict[char]

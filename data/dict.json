@@ -1,4 +1,4 @@
-const dict: Record<string, string> = {
+{
   "阿": "e",
   "啊": "a",
   "呵": "ke",
@@ -6761,7 +6761,5 @@ const dict: Record<string, string> = {
   "嘬": "zuo",
   "酢": "zuo",
   "阼": "zuo",
-  "胙": "zuo",
-};
-
-export default dict;
+  "胙": "zuo"
+}
